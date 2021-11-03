@@ -11,35 +11,19 @@ const fetchStart = () => ({ type: ACTIONS.FETCH_START })
 const fetchSuccess = (result) => ({ type: ACTIONS.FETCH_SUCCESS, payload: result })
 const fetchError = (error) => ({ type: ACTIONS.FETCH_ERROR, payload: error })
 
-const getXKCD = () => (dispatch) => {
+const getXKCD = (random) => (dispatch) => {
   dispatch(fetchStart())
 
-  // const randomNumber = randomXKCDNumber()
+  const param = random ? randomXKCDNumber() : 'latest'
 
-  dispatch(
-    fetchSuccess({
-      month: '11',
-      num: 2536,
-      link: '',
-      year: '2021',
-      news: '',
-      safe_title: 'Wirecutter',
-      transcript: '',
-      alt: "This was always going to be a controversial Wirecutter post, but what really got them in trouble were their 'budget' and 'upgrade' picks.",
-      img: 'https://imgs.xkcd.com/comics/wirecutter.png',
-      title: 'Wirecutter',
-      day: '1',
+  axios
+    .get(url(param))
+    .then((res) => {
+      dispatch(fetchSuccess(res.data))
     })
-  )
-
-  // axios
-  //   .get(url(randomNumber))
-  //   .then((res) => {
-  //     dispatch(fetchSuccess(res.data))
-  //   })
-  //   .catch((err) => {
-  //     dispatch(fetchError(err.message))
-  //   })
+    .catch((err) => {
+      dispatch(fetchError(err.message))
+    })
 }
 
 export { ACTIONS, getXKCD }

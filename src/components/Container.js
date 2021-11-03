@@ -1,7 +1,7 @@
 import tw, { styled } from 'twin.macro'
 
 const Wrapper = styled.main`
-  ${tw`flex flex-col justify-center items-center my-16`};
+  ${tw`flex flex-col justify-center items-center my-4`};
 `
 
 const Column = styled.div`
