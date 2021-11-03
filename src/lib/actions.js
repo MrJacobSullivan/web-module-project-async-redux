@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { url } from '../utils'
+import { url, randomXKCDNumber } from '../utils'
 
 const ACTIONS = {
   FETCH_START: 'FETCH_START',
@@ -14,8 +14,10 @@ const fetchError = (error) => ({ type: ACTIONS.FETCH_ERROR, payload: error })
 const getXKCD = () => (dispatch) => {
   dispatch(fetchStart())
 
+  const randomNumber = randomXKCDNumber()
+
   axios
-    .get(url)
+    .get(url(randomNumber))
     .then((res) => {
       dispatch(fetchSuccess(res.data))
     })

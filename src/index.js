@@ -13,7 +13,7 @@ import './index.css'
 import { reducer } from './lib/reducers'
 
 const middleware = [logger, thunk]
-const store = createStore(reducer, applyMiddleware(thunk)) // ...middleware
+const store = createStore(reducer, applyMiddleware(...middleware))
 
 render(
   <StrictMode>
