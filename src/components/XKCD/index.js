@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { connect } from 'react-redux'
-import { getXKCD } from '../lib/actions'
+import { getXKCD } from '../../lib/actions'
+import { Container, Image, Title, Date, Button } from './styles'
 
 const XKCD = ({ xkcd, isFetching, error, getXKCD }) => {
   useEffect(() => getXKCD(), [getXKCD])
@@ -10,14 +11,14 @@ const XKCD = ({ xkcd, isFetching, error, getXKCD }) => {
   if (isFetching) return <h2>Fetching an XKCD for you.</h2>
 
   return (
-    <div>
-      <img src={xkcd.img} alt={xkcd.alt} />
-      <h2>{xkcd.title}</h2>
-      <p>
+    <Container>
+      <Image src={xkcd.img} alt={xkcd.alt} />
+      <Title>{xkcd.title}</Title>
+      <Date>
         {xkcd.month}.{xkcd.day}.{xkcd.year}
-      </p>
-      <button onClick={handleClick}>Get XKCD</button>
-    </div>
+      </Date>
+      <Button onClick={handleClick}>Get XKCD</Button>
+    </Container>
   )
 }
 

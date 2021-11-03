@@ -1,11 +1,11 @@
 import XKCD from './components/XKCD'
+import Container from './components/Container'
 
 const App = () => {
   return (
-    <div>
-      <h2>Hello, world.</h2>
+    <Container title='XKCD Comics'>
       <XKCD />
-    </div>
+    </Container>
   )
 }
 

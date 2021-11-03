@@ -4,7 +4,7 @@ import tw, { GlobalStyles as BaseStyles } from 'twin.macro'
 
 const CustomStyles = createGlobalStyle`
   body {
-    ${tw`bg-red-500`};
+    ${tw`bg-gray-50 text-gray-900`};
   }
 `
 
