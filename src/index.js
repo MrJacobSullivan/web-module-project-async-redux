@@ -7,8 +7,8 @@ import { Provider } from 'react-redux'
 import logger from 'redux-logger'
 import thunk from 'redux-thunk'
 
+import GlobalStyles from './styles/GlobalStyles'
 import App from './App'
-import './index.css'
 
 import { reducer } from './lib/reducers'
 
@@ -18,6 +18,7 @@ const store = createStore(reducer, applyMiddleware(...middleware))
 render(
   <StrictMode>
     <Provider store={store}>
+      <GlobalStyles />
       <App />
     </Provider>
   </StrictMode>,
