@@ -1,10 +1,11 @@
 import { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { getXKCD } from '../../lib/actions'
-import { Container, Image, Title, Date, Button } from './styles'
+import { Container, Image, Title, Date, ButtonContainer, Button } from './styles'
 
 const XKCD = ({ xkcd, isFetching, error, getXKCD }) => {
   useEffect(() => getXKCD(), [getXKCD])
+
   const handleClick = () => getXKCD()
 
   if (error) return <h2>There was an error: {error}</h2>
@@ -17,7 +18,10 @@ const XKCD = ({ xkcd, isFetching, error, getXKCD }) => {
       <Date>
         {xkcd.month}.{xkcd.day}.{xkcd.year}
       </Date>
-      <Button onClick={handleClick}>Get XKCD</Button>
+      <ButtonContainer>
+        <Button onClick={handleClick}>Random</Button>
+        <Button onClick={handleClick}>Recent</Button>
+      </ButtonContainer>
     </Container>
   )
 }

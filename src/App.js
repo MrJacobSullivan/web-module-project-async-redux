@@ -1,5 +1,5 @@
-import XKCD from './components/XKCD'
 import Container from './components/Container'
+import XKCD from './components/XKCD'
 
 const App = () => {
   return (

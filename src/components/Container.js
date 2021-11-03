@@ -5,16 +5,20 @@ const Wrapper = styled.main`
 `
 
 const Column = styled.div`
-  ${tw`w-1/2 bg-red-500`};
+  ${tw`w-1/2 flex flex-col justify-center items-center`};
 `
 
-const PageTitle = styled.h1``
+const PageTitle = styled.h1`
+  ${tw`text-3xl p-4`};
+`
 
 const Container = ({ title, children }) => {
   return (
     <Wrapper>
-      <PageTitle>{title}</PageTitle>
-      <Column>{children}</Column>
+      <Column>
+        <PageTitle>{title}</PageTitle>
+        {children}
+      </Column>
     </Wrapper>
   )
 }
