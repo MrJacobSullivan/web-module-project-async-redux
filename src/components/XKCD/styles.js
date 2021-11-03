@@ -1,11 +1,19 @@
 import tw, { styled } from 'twin.macro'
 
+const Error = styled.h2`
+  ${tw`text-red-500`};
+`
+
+const Loading = styled.h2`
+  ${tw`text-gray-500`};
+`
+
 const Wrapper = styled.section`
-  ${tw`flex flex-col w-full`};
+  ${tw`flex flex-col w-full items-center`};
 `
 
 const ContentContainer = styled.div`
-  ${tw`flex flex-col`};
+  ${tw`flex flex-col w-4/5`};
 `
 
 const ButtonContainer = styled.div`
@@ -32,4 +40,4 @@ const Button = styled.button`
   }
 `
 
-export { Wrapper, ContentContainer, ButtonContainer, Image, Title, Date, Button }
+export { Error, Loading, Wrapper, ContentContainer, ButtonContainer, Image, Title, Date, Button }

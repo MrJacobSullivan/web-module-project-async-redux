@@ -1,13 +1,23 @@
 import { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { getXKCD } from '../../lib/actions'
-import { Wrapper, ContentContainer, ButtonContainer, Image, Title, Date, Button } from './styles'
+import {
+  Error,
+  Loading,
+  Wrapper,
+  ContentContainer,
+  ButtonContainer,
+  Image,
+  Title,
+  Date,
+  Button,
+} from './styles'
 
 const XKCD = ({ xkcd, isFetching, error, getXKCD }) => {
   useEffect(() => getXKCD(false), [getXKCD])
 
-  if (error) return <h2>There was an error: {error}</h2>
-  if (isFetching) return <h2>Fetching an XKCD for you.</h2>
+  if (error) return <Error>There was an error: {error}</Error>
+  if (isFetching) return <Loading>Fetching an XKCD for you.</Loading>
 
   return (
     <Wrapper>
